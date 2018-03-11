@@ -11,7 +11,6 @@ class HelloWindow(Gtk.Window):
 
         # Create a button
         self.button = Gtk.Button(label='Click Me!')
-
         """
         Add a handler for `clicked` event
         General syntax:
@@ -23,6 +22,12 @@ class HelloWindow(Gtk.Window):
 
         # Add button to window as a child
         self.add(self.button)
+
+        # Delete an event using handler
+        self.button.disconnect(new_handler_id)
+
+        # Delete an event using callback
+        self.button.disconnect_by_func(self.click_handler)
 
     # Called when button is clicked
     def click_handler(self, widget):
